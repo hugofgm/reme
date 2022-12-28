@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { getFirestore } from "firebase/firestore";
+import { FirestoreProvider, useFirebaseApp } from "reactfire";
+import "./App.css";
+import { CreateEvent } from "./Components/CreateEvent";
+import { EventList } from "./Components/EventList";
+import { Event } from "./Components/Event";
+import { Nav } from "./Components/Nav";
+import { Route, Routes } from "react-router-dom";
+import back1 from "./Assets/back1.png";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FirestoreProvider sdk={getFirestore(useFirebaseApp())}>
+      <Nav />
+      <Routes>
+        <Route path="/events">
+          <Route index element={<EventList />} />
+          <Route path=":id" element={<Event />} />
+        </Route>
+        <Route path="/create_event" element={<CreateEvent />} />
+      </Routes>
+      <img className="background" src={back1} />
+    </FirestoreProvider>
   );
 }
 

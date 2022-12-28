@@ -1,0 +1,60 @@
+
+.card {
+    position: relative;
+    height: 150px;
+    background: #fcfcfc;
+    margin: 20px 40px;
+    transition: 0.4s all;
+    display: grid;
+    grid-template-columns: 0.3fr 0.5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+
+  }
+
+  @media only screen and (min-width: 600px) {
+  .card {
+    width:700px;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.623);
+    
+  }
+}
+
+.col1 {
+    grid-column: 1;
+        
+}
+
+.col2 {
+    grid-column: 2;
+    background-color: green;
+    display: contents;
+}
+
+.col3 {
+    grid-column: 3;
+}
+
+.cardImg {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    margin: auto;
+}
+
+.par {
+    margin: 0px;
+}
+
+.eventLink {
+    cursor: default;
+    text-decoration: none;
+    color: #000;
+  }
